@@ -4,6 +4,16 @@ document.addEventListener("DOMContentLoaded", function(event){
     var btn = document.getElementById('botao')
     var tipoCifra = document.getElementById('cifras')
 
+    var codificar = document.getElementById('codificado')
+    var decodificar = document.getElementById('decodificado')
+
+    codificar.onclick = ()=>{
+        btn.innerText = 'Clique aqui para Codificar'
+    }
+    decodificar.onclick = ()=>{
+        btn.innerText = 'Clique aqui para Decodificar'
+    }
+
     tipoCifra.addEventListener('change', function(event){
         var codigo = tipoCifra.value
         var passoLabelClasses = document.getElementById('passoLabel').classList
@@ -16,18 +26,18 @@ document.addEventListener("DOMContentLoaded", function(event){
             passoInputClasses.remove('invisivel')
         }
     }) 
+
+    
     
     btn.addEventListener('click', function(event){
         event.preventDefault()
         var metodo = tipoCifra.value
         var msgFinal = ""
-        var codificar = document.getElementById('codificado').checked
-        var decodificar = document.getElementById('decodificado').checked
         var acao = ''
 
-        if(codificar){
+        if(codificar.checked){
             acao = 'codificar'
-        }else if(decodificar)
+        }else if(decodificar.checked)
             acao = 'decodificar'
         else{
             msgFinal = 'Escolha uma ação'
